@@ -2,13 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fresh Fashuns</title>
+  <title>Plebs Dept</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <div class="container">
-    <h1 class="left-align">Fresh Fashuns</h1>
+  <div class="container centered">
+    <h1 class="left-align">Plebs Dept.</h1>
+
+    <div id="products"></div>
+    <script id="template" type="text/x-handlebars-template">
+      <div class="grid">
+      {{#each products}}
+        <div class="grid-item">
+          <a href="{{clickUrl}}"><img src="{{image.sizes.Large.url}}" height="{{image.sizes.Large.actualHeight}}"></a>
+          <div class="name"><a href="{{clickUrl}}">{{brandedName}}</a></div>
+          <div class="price">{{#if salePriceLabel}} {{salePriceLabel}} on sale, originally{{/if}} {{priceLabel}}</div>
+        </div>
+      {{/each}}
+      </div>
+    </script>
   </div>
 </body>
 </html>
